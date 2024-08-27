@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>BC Poker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @font-face {
+            font-family: "Averta Std";
+            src: url("./font/avertastd-bold.ttf");
+            font-weight: 400;
+        }
+
+        /* 针对 PC 端 (宽度大于1024px) 的样式 */
+        @media (min-width: 750px) {
+            html {
+                max-width: 375px;
+                margin: 0 auto;
+            }
+        }
+
+        /* 针对 H5 端 (宽度小于等于1024px) 的样式 */
+        @media (max-width: 750px) {
+            html {
+                max-width: none;
+                margin: 0;
+            }
+        }
+
+        html,
+        body {
+            position: relative;
+            height: 100%;
+        }
+
+        body {
+            background: #1e2020;
+            font-family: Averta Std;
+            font-size: 0.14rem;
+            /* 14px */
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        swiper-container {
+            width: 100%;
+            height: 4.35rem;
+            /* 435px */
+        }
+
+        swiper-slide {
+            text-align: center;
+            font-size: 0.18rem;
+            /* 18px */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            cursor: grabbing;
+        }
+
+        swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .bcpokerHeader {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            padding: 0.22rem;
+            /* 22px */
+        }
+
+        .bcpokerHeader .logo img {
+            width: 1.83rem;
+            /* 183px */
+            height: 0.36rem;
+            /* 36px */
+        }
+
+        .bcpokerHeader .service {
+            position: absolute;
+            top: 0.22rem;
+            /* 22px */
+            right: 0.16rem;
+            /* 16px */
+        }
+
+        .bcpokerHeader .service img {
+            width: 0.36rem;
+            /* 36px */
+            height: 0.36rem;
+            /* 36px */
+        }
+
+        swiper-slide {
+            position: relative;
+        }
+
+        .bannerTitle {
+            position: absolute;
+            width: 100%;
+            bottom: 0.6rem;
+            /* 60px */
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 0.18rem;
+            /* 18px */
+            font-weight: bold;
+        }
+
+        .bcpokerSection {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            gap: 0.13rem;
+            /* 13px */
+            margin: 0.16rem 0;
+            /* 16px */
+            display: none;
+        }
+
+
+
+        .bcpokerButton {
+            width: 3.44rem;
+            /* 344px */
+            height: 0.5rem;
+            /* 50px */
+            background: linear-gradient(90deg, #23EE88 0%, #9FE871 100%);
+            /* box-shadow: 0rem 0rem 0.04rem 0rem #24EE89,
+                0rem 0rem 0.168rem 0rem rgba(36, 238, 137, 0.2),
+                0rem 0.021rem 0rem 0rem #1DCA6A; */
+            /* 0px 2.1px 0px 0px */
+            border-radius: 0.12rem;
+            /* 12px */
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            font-size: 0.16rem;
+            /* 16px */
+            cursor: pointer;
+            user-select: none;
+            padding-left: .60rem;
+        }
+
+        #androidSection .bcpokerButton {
+            padding-left: 0rem;
+            justify-content: center;
+        }
+
+        .bcpokerButton .iosIcon {
+            width: 0.15rem;
+            /* 15px */
+            height: 0.19rem;
+            /* 19px */
+            margin-right: 0.18rem;
+            /* 18px */
+        }
+
+        .alreadySection {
+            width: 100%;
+            font-size: 0.16rem;
+            /* 16px */
+            font-weight: bold;
+            color: rgb(180, 191, 194);
+            text-align: center;
+            height: 0.4rem;
+            /* 40px */
+        }
+
+        .alreadySection .open {
+            color: #24EE89;
+            text-decoration: underline;
+        }
+
+        .androidTutorial {
+            padding: 0 .15rem;
+            margin-top: .32rem;
+            display: none;
+        }
+
+        .androidTutorial h2 {
+            color: white;
+            font-size: .16rem;
+            margin-bottom: .20rem;
+        }
+
+        .androidTutorial ul li {
+            display: flex;
+            gap: .10rem;
+            margin-top: .10rem;
+        }
+
+        .androidTutorial ul li span {
+            display: inline-block;
+            width: .25rem;
+            height: .25rem;
+            line-height: .25rem;
+            color: #24EE89;
+            border-radius: 0.06rem;
+            font-size: .14rem;
+            text-align: center;
+            background-color: #3A4142;
+            flex-shrink: 0;
+        }
+
+        .androidTutorial ul li p {
+            font-size: .14rem;
+            color: #B2BFC2;
+        }
+
+        .bcpokerFooter {
+            margin-top: 0.4rem;
+            /* 60px */
+            padding: 0.6rem 0.15rem;
+            /* 60px 15px */
+            background-image: url(./images/footertop.png);
+            background-size: 100% auto;
+            background-repeat: no-repeat;
+            background-position: center top;
+            position: relative;
+            display: none;
+        }
+
+        .bcpokerFooter .logo img {
+            width: 1.66rem;
+            /* 166px */
+        }
+
+        .bcpokerFooter a img {
+            width: 0.48rem;
+            /* 48px */
+            height: 0.48rem;
+            /* 48px */
+        }
+
+        .bcpokerFooter .followusContainer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 0.18rem;
+            /* 18px */
+        }
+
+        .bcpokerFooter .followusContainer .title {
+            font-size: 0.18rem;
+            /* 18px */
+            color: white;
+        }
+
+        .bcpokerFooter .followusContainer .followusContent {
+            display: flex;
+            gap: 0.16rem;
+            /* 16px */
+        }
+
+        .bcpokerFooter .copyright {
+            position: absolute;
+            width: 100%;
+            height: 0.3rem;
+            /* 30px */
+            line-height: 0.3rem;
+            /* 30px */
+            text-align: center;
+            font-size: 0.14rem;
+            /* 14px */
+            color: #000;
+            left: 0;
+            bottom: 0;
+            background-color: #23EE88;
+        }
+    </style>
+    <script src="./js/flexible.js"></script>
+</head>
+
+<body>
+    <header class="bcpokerHeader">
+        <div class="logo">
+            <img src="./images/logo.png" alt="">
+        </div>
+    </header>
+
+    <swiper-container class="mySwiper" pagination="true" loop="true"
+        style="--swiper-theme-color: linear-gradient(90deg, #23EE88 0%, #9FE871 100%); --swiper-pagination-bullet-size: .12rem;">
+        <swiper-slide>
+            <img src="./images/banner1.png" alt="">
+            <p class="bannerTitle">All levels of cash table games,<br />
+                Multiple exciting tournaments</p>
+        </swiper-slide>
+        <swiper-slide>
+            <img src="./images/banner2.png" alt="">
+            <p class="bannerTitle">A variety of poker game play,<br />
+                Convenient way to operate</p>
+        </swiper-slide>
+        <swiper-slide>
+            <img src="./images/banner3.png" alt="">
+            <p class="bannerTitle">Popular mini-game play,<br />
+                Fun outside of poker</p>
+        </swiper-slide>
+    </swiper-container>
+    <script src="./js/swiper.js"></script>
+
+    <section class="bcpokerSection" id="iosSection">
+        <a href="./fast.html" class="bcpokerButton"><img src="./images/iosIcon.png" class="iosIcon" alt="">Download Fast
+            Version</a>
+        <a href="./stable.html" class="bcpokerButton"><img src="./images/iosIcon.png" class="iosIcon" alt="">Download
+            Stable
+            Version</a>
+    </section>
+
+    <section class="bcpokerSection" id="androidSection">
+        <a href="https://bcpoker-dev.s3.ap-southeast-1.amazonaws.com/apk/BCPoker20240820.apk"
+            class="bcpokerButton">Download</a>
+    </section>
+
+    <section class="alreadySection">Already installed? <a href="bcpokerlink://bcpoker.link" class="open">Open</a>
+    </section>
+
+    <section class="androidTutorial" id="androidTutorial">
+        <h2>How to install Android devices?</h2>
+        <ul>
+            <li>
+                <span>1</span>
+                <p>Please go to 【Setup】- 【Security】 before downloading</p>
+            </li>
+            <li>
+                <span>2</span>
+                <p>Open an 【Unknown source】 and select 【OK】</p>
+            </li>
+            <li>
+                <span>3</span>
+                <p>Click the 【Download】 button or scan the QR code to download the BC POKER APP and agree to install it.
+                </p>
+            </li>
+        </ul>
+    </section>
+
+    <footer class="bcpokerFooter" id="androidFooter">
+        <div class="logo"><img src="./images/logo.png" alt=""></div>
+        <div class="followusContainer">
+            <p class="title">Follow us</p>
+            <div class="followusContent">
+                <a href="https://x.com/bcpokerofficial" target="_blank"><img src="./images/twitter.png" alt=""></a>
+                <a href="https://t.me/bcpokerofficia" target="_blank"><img src="./images/telegram.png" alt=""></a>
+            </div>
+        </div>
+        <div class="copyright">© BC Poker 2024</div>
+    </footer>
+
+    <script>
+        // 检测操作系统
+        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+        if (/android/i.test(userAgent) || /Windows/i.test(userAgent)) {
+            document.getElementById('androidSection').style.display = 'flex';
+            document.getElementById('androidTutorial').style.display = 'block';
+            document.getElementById('androidFooter').style.display = 'block';
+        } else {
+            document.getElementById('iosSection').style.display = 'flex';
+        }
+    </script>
+
+    <script>
+        window.intercomSettings = {
+            api_base: "https://api-iam.intercom.io",
+            app_id: "o34auypr",
+        };
+    </script>
+    <script>
+        // We pre-filled your app ID in the widget URL: 'https://widget.intercom.io/widget/o34auypr'
+        (function () { var w = window; var ic = w.Intercom; if (typeof ic === "function") { ic('reattach_activator'); ic('update', w.intercomSettings); } else { var d = document; var i = function () { i.c(arguments); }; i.q = []; i.c = function (args) { i.q.push(args); }; w.Intercom = i; var l = function () { var s = d.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = 'https://widget.intercom.io/widget/o34auypr'; var x = d.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x); }; if (document.readyState === 'complete') { l(); } else if (w.attachEvent) { w.attachEvent('onload', l); } else { w.addEventListener('load', l, false); } } })();
+    </script>
+</body>
+
+</html>
