@@ -3,317 +3,12 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Swiper demo</title>
+    <title>BC Poker</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
-    <style>
-        @font-face {
-            font-family: "Averta Std";
-            src: url("./font/avertastd-bold.ttf");
-            font-weight: 400;
-        }
-
-        /* 针对 PC 端 (宽度大于1024px) 的样式 */
-        @media (min-width: 750px) {
-            html {
-                max-width: 375px;
-                margin: 0 auto;
-            }
-        }
-
-        /* 针对 H5 端 (宽度小于等于1024px) 的样式 */
-        @media (max-width: 750px) {
-            html {
-                max-width: none;
-                margin: 0;
-            }
-        }
-
-        html,
-        body {
-            position: relative;
-            height: 100%;
-        }
-
-        body {
-            background: #1e2020;
-            font-family: Averta Std;
-            font-size: 0.14rem;
-            /* 14px */
-            color: #000;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-        }
-
-        a {
-            text-decoration: none;
-            color: #000;
-        }
-
-        .bcpokerHeader {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            margin-top: 0.22rem;
-            /* 22px */
-        }
-
-        .bcpokerHeader .logo img {
-            width: 1.32rem;
-            /* 132px */
-            height: 1.08rem;
-            /* 108px */
-        }
-
-        .bcpokerButton {
-            width: 3.44rem;
-            /* 344px */
-            height: 0.5rem;
-            /* 50px */
-            background: linear-gradient(90deg, #23EE88 0%, #9FE871 100%);
-            /* box-shadow: 0rem 0rem 0.04rem 0rem #24EE89,
-                0rem 0rem 0.168rem 0rem rgba(36, 238, 137, 0.2),
-                0rem 0.021rem 0rem 0rem #1DCA6A; */
-            border-radius: 0.12rem;
-            /* 12px */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 0.16rem;
-            /* 16px */
-            cursor: pointer;
-            user-select: none;
-            margin-top: 0.32rem;
-            /* 32px */
-        }
-
-        .bcpokerButton .iosIcon {
-            width: 0.15rem;
-            /* 15px */
-            height: 0.19rem;
-            /* 19px */
-            margin-right: 0.18rem;
-            /* 18px */
-        }
-
-        .bcpokerHeader .back a {
-            display: block;
-            color: #23EE88;
-            font-size: 0.16rem;
-            /* 16px */
-            margin-top: 0.16rem;
-            /* 16px */
-            text-decoration: underline;
-        }
-
-        .bcpokerSection {
-            display: flex;
-            flex-direction: column;
-            padding: 0 0.37rem;
-            /* 37px */
-            margin-top: 0.32rem;
-            /* 32px */
-        }
-
-        .bcpokerSection .stepContainer {
-            margin-left: 0.31rem;
-            /* 31px */
-            position: relative;
-        }
-
-        .bcpokerSection .stepContainer::after {
-            content: '';
-            position: absolute;
-            width: 0.03rem;
-            /* 3px */
-            height: 13.40rem;
-            background: linear-gradient(90deg, #23EE88 0%, #9FE871 100%);
-            box-shadow: inset 0px -0.02rem 0px 0px #1DCA6A, 0px 0px 0.12rem 0px #23EE8830;
-            top: 0.4rem;
-            /* 40px */
-            left: -0.25rem;
-            /* -25px */
-        }
-
-        .bcpokerSection .stepText {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .bcpokerSection .stepText .title {
-            font-size: 0.77rem;
-            /* 77px */
-            color: #23EE88;
-        }
-
-        .bcpokerSection .stepText .title::after {
-            content: '';
-            position: absolute;
-            width: 0.15rem;
-            /* 15px */
-            height: 0.15rem;
-            /* 15px */
-            background: linear-gradient(90deg, #23EE88 0%, #9FE871 100%);
-            box-shadow: 0px 0px 0.12rem 0px #23EE8830,
-                0px -0.02rem 0px 0px #1DCA6A inset;
-            border-radius: 50%;
-            top: 0.33rem;
-            /* 33px */
-            left: -0.31rem;
-            /* -31px */
-            z-index: 1;
-        }
-
-        .bcpokerSection .stepText .explanation {
-            font-size: 0.14rem;
-            /* 14px */
-            color: #B2BFC2;
-            text-align: right;
-            position: relative;
-            z-index: 1;
-        }
-
-        .bcpokerSection .step1 {
-            position: relative;
-            height: 2.53rem;
-        }
-
-        .bcpokerSection .step1 .stepImage {
-            position: absolute;
-            top: 0.2rem;
-            /* 20px */
-            left: -0.49rem;
-            /* -49px */
-        }
-
-        .bcpokerSection .step1 .stepImage img {
-            width: 3.74rem;
-            /* 374.5px */
-            height: 2.53rem;
-        }
-
-        .bcpokerSection .step2 {
-            position: relative;
-            height: 4.86rem;
-        }
-
-        .bcpokerSection .step2 .stepImage {
-            position: absolute;
-            top: 0.25rem;
-            /* 20px */
-            left: -0.49rem;
-            /* -49px */
-        }
-
-        .bcpokerSection .step2 .stepImage img {
-            width: 3.74rem;
-            /* 374.5px */
-            height: 4.86rem;
-        }
-
-        .bcpokerSection .step3 {
-            position: relative;
-            height: 6.03rem;
-        }
-
-        .bcpokerSection .step3 .stepImage {
-            position: absolute;
-            top: 0.2rem;
-            /* 20px */
-            left: -0.49rem;
-            /* -49px */
-        }
-
-        .bcpokerSection .step3 .stepImage img {
-            width: 3.74rem;
-            /* 374.5px */
-            height: 6.03rem;
-        }
-
-        .bcpokerSection .step5 {
-            position: relative;
-            height: 6.82rem;
-            /* 682px */
-        }
-
-        .bcpokerSection .step5 .stepImage {
-            position: absolute;
-            top: 0.2rem;
-            /* 20px */
-            left: -0.49rem;
-            /* -49px */
-        }
-
-        .bcpokerSection .step5 .stepImage img {
-            width: 3.74rem;
-            /* 374.5px */
-            height: 6.82rem;
-            /* 682px */
-        }
-
-        .bcpokerFooter {
-            margin-top: 0.6rem;
-            /* 60px */
-            padding: 0.6rem 0.15rem;
-            /* 60px 15px */
-            background-image: url(./images/footertop.png);
-            background-size: 100% auto;
-            background-repeat: no-repeat;
-            background-position: center top;
-            position: relative;
-        }
-
-        .bcpokerFooter .logo img {
-            width: 1.66rem;
-            /* 166px */
-        }
-
-        .bcpokerFooter a img {
-            width: 0.48rem;
-            /* 48px */
-            height: 0.48rem;
-            /* 48px */
-        }
-
-        .bcpokerFooter .followusContainer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 0.18rem;
-            /* 18px */
-        }
-
-        .bcpokerFooter .followusContainer .title {
-            font-size: 0.18rem;
-            /* 18px */
-            color: white;
-        }
-
-        .bcpokerFooter .followusContainer .followusContent {
-            display: flex;
-            gap: 0.16rem;
-            /* 16px */
-        }
-
-        .bcpokerFooter .copyright {
-            position: absolute;
-            width: 100%;
-            height: 0.3rem;
-            /* 30px */
-            line-height: 0.3rem;
-            /* 30px */
-            text-align: center;
-            font-size: 0.14rem;
-            /* 14px */
-            color: #000;
-            left: 0;
-            bottom: 0;
-            background-color: #23EE88;
-        }
-    </style>
+    <meta name="description" content="Unleash Your Poker Powerhouse">
+    <link rel="icon" href="./favicon.ico" />
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/fast.css">
     <script src="./js/flexible.js"></script>
 </head>
 
@@ -321,10 +16,12 @@
     <header class="bcpokerHeader">
         <div class="logo"><img src="./images/logo2.png" alt=""></div>
         <div><a href="itms-services://?action=download-manifest&url=https://bcpoker-dev.s3.ap-southeast-1.amazonaws.com/resources/ipa/bcpoker.plist"
-                class="bcpokerButton"><img src="./images/iosIcon.png" class="iosIcon" alt="">Download Fast Version</a>
+                class="bcpokerButton" onclick="downloadEvent()"><img src="./images/iosIcon.png" class="iosIcon"
+                    alt="">Download Fast Version</a>
         </div>
-        <p class="back"><a href="index.html">Back</a></p>
+        <p class="back"><a href="index.html" onclick="reportEvent(2)">Back</a></p>
     </header>
+    
     <section class="bcpokerSection">
         <div class="stepContainer">
             <!-- Step 1 -->
@@ -377,12 +74,16 @@
         <div class="followusContainer">
             <p class="title">Follow us</p>
             <div class="followusContent">
-                <a href="https://x.com/bcpokerofficial" target="_blank"><img src="./images/twitter.png" alt=""></a>
-                <a href="https://t.me/bcpokerofficia" target="_blank"><img src="./images/telegram.png" alt=""></a>
+                <a href="https://x.com/bcpokerofficial" target="_blank" onclick="reportEvent(2)"><img
+                        src="./images/twitter.png" alt=""></a>
+                <a href="https://t.me/bcpokerofficial" target="_blank" onclick="reportEvent(2)"><img
+                        src="./images/telegram.png" alt=""></a>
             </div>
         </div>
         <div class="copyright">© BC Poker 2024</div>
     </footer>
+
+    <script src="js/index.js"></script>
 </body>
 
 </html>

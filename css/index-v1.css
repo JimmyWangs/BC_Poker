@@ -1,0 +1,181 @@
+.intercom-lightweight-app-launcher{
+    display: none !important;
+}
+.intercom-launcher-frame{
+    display: none !important;
+}
+
+swiper-container {
+    width: 100%;
+    /* height: 4.35rem; */
+    height: 4.70rem;
+    /* 435px */
+}
+
+swiper-slide {
+    text-align: center;
+    font-size: 0.18rem;
+    /* 18px */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    cursor: grabbing;
+}
+
+swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 4.84rem;
+    object-fit: cover;
+    transform: translateY(-.11rem);
+}
+
+.bcpokerHeader {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding: 0.22rem;
+    /* 22px */
+}
+
+.bcpokerHeader .logo img {
+    width: 1.83rem;
+    /* 183px */
+    height: 0.36rem;
+    /* 36px */
+}
+
+.bcpokerHeader .service {
+    position: absolute;
+    top: 0.22rem;
+    /* 22px */
+    right: 0.16rem;
+    /* 16px */
+}
+
+.bcpokerHeader .service img {
+    width: 0.36rem;
+    /* 36px */
+    height: 0.36rem;
+    /* 36px */
+}
+
+swiper-slide {
+    position: relative;
+}
+
+.bannerTitle {
+    position: absolute;
+    width: 100%;
+    bottom: 0.85rem;
+    /* 60px */
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 0.18rem;
+    /* 18px */
+    font-weight: bold;
+}
+
+.bcpokerSection {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 0.13rem;
+    /* 13px */
+    margin: 0.09rem 0;
+    /* 16px */
+    display: none;
+}
+
+
+
+.bcpokerButton {
+    width: 3.44rem;
+    /* 344px */
+    height: 0.5rem;
+    /* 50px */
+    background: linear-gradient(90deg, #23EE88 0%, #9FE871 100%);
+    /* box-shadow: 0rem 0rem 0.04rem 0rem #24EE89,
+        0rem 0rem 0.168rem 0rem rgba(36, 238, 137, 0.2),
+        0rem 0.021rem 0rem 0rem #1DCA6A; */
+    /* 0px 2.1px 0px 0px */
+    border-radius: 0.12rem;
+    /* 12px */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 0.16rem;
+    /* 16px */
+    cursor: pointer;
+    user-select: none;
+    padding-left: .60rem;
+}
+
+#androidSection .bcpokerButton {
+    padding-left: 0rem;
+    justify-content: center;
+}
+
+.bcpokerButton .iosIcon {
+    width: 0.15rem;
+    /* 15px */
+    height: 0.19rem;
+    /* 19px */
+    margin-right: 0.18rem;
+    /* 18px */
+}
+
+.alreadySection {
+    width: 100%;
+    font-size: 0.16rem;
+    /* 16px */
+    font-weight: bold;
+    color: rgb(180, 191, 194);
+    text-align: center;
+    height: 0.4rem;
+    /* 40px */
+}
+
+.alreadySection .open {
+    color: #24EE89;
+    text-decoration: underline;
+}
+
+.androidTutorial {
+    padding: 0 .15rem;
+    margin-top: .32rem;
+    display: none;
+}
+
+.androidTutorial h2 {
+    color: white;
+    font-size: .16rem;
+    margin-bottom: .20rem;
+}
+
+.androidTutorial ul li {
+    display: flex;
+    gap: .10rem;
+    margin-top: .10rem;
+}
+
+.androidTutorial ul li span {
+    display: inline-block;
+    width: .25rem;
+    height: .25rem;
+    line-height: .25rem;
+    color: #24EE89;
+    border-radius: 0.06rem;
+    font-size: .14rem;
+    text-align: center;
+    background-color: #3A4142;
+    flex-shrink: 0;
+}
+
+.androidTutorial ul li p {
+    font-size: .14rem;
+    color: #B2BFC2;
+}
