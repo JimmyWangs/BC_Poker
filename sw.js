@@ -60,16 +60,16 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('install', (event) => {
   event.waitUntil(
     addResourcesToCache([
-      '/',
-      '/index.html',
-      '/style.css',
-      '/app.js',
-      '/image-list.js',
-      '/star-wars-logo.jpg',
-      '/gallery/bountyHunters.jpg',
-      '/gallery/myLittleVader.jpg',
-      '/gallery/snowTroopers.jpg',
-      '/pm_test/index.html',
+      '/BC_Poker/',
+      '/BC_Poker/index.html',
+      '/BC_Poker/style.css',
+      '/BC_Poker/app.js',
+      '/BC_Poker/image-list.js',
+      '/BC_Poker/star-wars-logo.jpg',
+      '/BC_Poker/gallery/bountyHunters.jpg',
+      '/BC_Poker/gallery/myLittleVader.jpg',
+      '/BC_Poker/gallery/snowTroopers.jpg',
+      '/BC_Poker/pm_test/index.html',
     ])
   );
 });
