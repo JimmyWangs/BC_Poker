@@ -1,118 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="utf-8" />
-    <title>BC Poker</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
-    <meta name="description" content="Unleash Your Poker Powerhouse">
-    <link rel="icon" href="./favicon.ico" />
-    <link rel="stylesheet" href="./css/common.css">
-    <link rel="stylesheet" href="./css/index-v1.css">
-    <script src="./js/flexible.js"></script>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Service worker demo</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
 </head>
 
 <body>
-    <header class="bcpokerHeader">
-        <div class="logo">
-            <img src="./images/logo.png" alt="">
-        </div>
-        <div id="service" class="service" onClick="Intercom('show');">
-            <img src="./images/service.png" alt="">
-        </div>
-    </header>
+  
+  <!-- <h1>Lego Star Wars gallery</h1> -->
 
-    <swiper-container class="mySwiper" pagination="true" loop="true"
-        style="--swiper-theme-color: linear-gradient(90deg, #23EE88 0%, #9FE871 100%); --swiper-pagination-bullet-size: .12rem;--swiper-pagination-bullet-horizontal-gap:7.5px; --swiper-pagination-bullet-inactive-color:#fff;--swiper-pagination-bullet-inactive-opacity:0.5;">
-        <swiper-slide>
-            <img src="./images/banner1.png" alt="">
-            <p class="bannerTitle">All Levels of Cash Games,<br /> Multiple Exciting Tournaments</p>
-        </swiper-slide>
-        <swiper-slide>
-            <img src="./images/banner2.png" alt="">
-            <p class="bannerTitle">A Variety of Poker Game Play,<br /> Convenient Way to Operate</p>
-        </swiper-slide>
-        <swiper-slide>
-            <img src="./images/banner3.png" alt="">
-            <p class="bannerTitle">Popular Mini-game Play,<br /> Fun Outside of Poker</p>
-        </swiper-slide>
-    </swiper-container>
+  <!-- <section></section> -->
 
-    <section class="bcpokerSection" id="iosSection">
-        <a href="./fast.html" class="bcpokerButton" onclick="reportEvent(2)"><img src="./images/iosIcon.png"
-                class="iosIcon" alt="">Download Fast Version</a>
-        <a href="./stable.html" class="bcpokerButton" onclick="reportEvent(2)"><img src="./images/iosIcon.png"
-                class="iosIcon" alt="">Download Stable Version</a>
-    </section>
-
-    <section class="bcpokerSection" id="androidSection">
-        <a href="https://bcpoker-dev.s3.ap-southeast-1.amazonaws.com/apk/BCPoker20240820.apk" class="bcpokerButton"
-            onclick="downloadEvent()">Download</a>
-    </section>
-
-    <section class="alreadySection">Already installed? <a href="bcpokerlink://bcpoker.link" class="open"
-            onclick="reportEvent(2)">Open</a></section>
-
-    <section class="androidTutorial" id="androidTutorial">
-        <h2>How to install Android devices?</h2>
-        <ul>
-            <li>
-                <span>1</span>
-                <p>Please go to 【Setup】- 【Security】 before downloading</p>
-            </li>
-            <li>
-                <span>2</span>
-                <p>Open an 【Unknown source】 and select 【OK】</p>
-            </li>
-            <li>
-                <span>3</span>
-                <p>Click the 【Download】 button to download the BC POKER APP and agree to install it.
-                </p>
-            </li>
-        </ul>
-    </section>
-
-    <footer class="bcpokerFooter" id="androidFooter">
-        <div class="logo"><img src="./images/logo.png" alt=""></div>
-        <div class="followusContainer">
-            <p class="title">Follow us</p>
-            <div class="followusContent">
-                <a href="https://x.com/bcpokerofficial" target="_blank" onclick="reportEvent(2)"><img
-                        src="./images/twitter.png" alt=""></a>
-                <a href="https://t.me/bcpokerofficial" target="_blank" onclick="reportEvent(2)"><img
-                        src="./images/telegram.png" alt=""></a>
-            </div>
-        </div>
-        <div class="copyright">© BC Poker 2024</div>
-    </footer>
-
-    <script>
-        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-        if (/android/i.test(userAgent) || /Windows/i.test(userAgent)) {
-            document.getElementById('androidSection').style.display = 'flex';
-            document.getElementById('androidTutorial').style.display = 'block';
-            document.getElementById('androidFooter').style.display = 'block';
-            document.getElementById('iosSection').style.display = 'none';
-        } else {
-            document.getElementById('iosSection').style.display = 'flex';
-            document.getElementById('androidSection').style.display = 'none';
-            document.getElementById('androidTutorial').style.display = 'none';
-            document.getElementById('androidFooter').style.display = 'none';
-        }
-    </script>
-
-    <script src="./js/swiper.js"></script>
-    <script src="js/index.js"></script>
-    <script>
-        window.intercomSettings = {
-            api_base: "https://api-iam.intercom.io",
-            app_id: "o34auypr",
-        };
-    </script>
-    <script>
-        // We pre-filled your app ID in the widget URL: 'https://widget.intercom.io/widget/o34auypr'
-        (function () { var w = window; var ic = w.Intercom; if (typeof ic === "function") { ic('reattach_activator'); ic('update', w.intercomSettings); } else { var d = document; var i = function () { i.c(arguments); }; i.q = []; i.c = function (args) { i.q.push(args); }; w.Intercom = i; var l = function () { var s = d.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = 'https://widget.intercom.io/widget/o34auypr'; var x = d.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x); }; if (document.readyState === 'complete') { l(); } else if (w.attachEvent) { w.attachEvent('onload', l); } else { w.addEventListener('load', l, false); } } })();
-    </script>
+  <script type="module" src="app.js"></script>
 </body>
 
 </html>
